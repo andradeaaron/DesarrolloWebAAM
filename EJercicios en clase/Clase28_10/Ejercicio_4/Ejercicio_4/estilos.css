@@ -1,0 +1,113 @@
+.receta {
+  width: 100px;
+  height: 100px;
+}
+.grilla {
+  display: grid;
+  grid-template-columns: 100px 100px 100px;
+  gap: 10px;
+}
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+/* ---------- Mejoras sutiles ---------- */
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  margin: 20px;
+}
+header {
+  background-color: #b83a0e;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 6px;
+  font-weight: bold;
+}
+#info {
+  margin: 8px 0;
+  font-size: 14px;
+  color: #555;
+}
+.btnMenu {
+  padding: 6px 12px;
+  border: 1px solid #b83a0e;
+  border-radius: 6px;
+  background: white;
+  color: #b83a0e;
+  cursor: pointer;
+}
+.btnMenu:hover {
+  background: #b83a0e;
+  color: white;
+}
+
+/* tarjetas del catalogo */
+.receta {
+  border-radius: 8px;
+  display: block;
+}
+.grilla > div {
+  cursor: pointer;                  /* indica que se puede hacer clic */
+  font-size: 14px;
+  transition: transform 0.15s;
+}
+.grilla > div:hover {
+  transform: translateY(-3px);
+}
+
+/* modal: caja centrada sobre el fondo oscuro */
+.modal-caja {
+  background: white;
+  width: 340px;
+  margin: 5% auto;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.modal-titulo {
+  background-color: #b83a0e;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  font-weight: bold;
+}
+#contenido-modal {
+  padding: 15px;
+}
+#contenido-modal img {
+  display: block;
+  margin: 0 auto 10px;
+  border-radius: 8px;
+}
+#titulo-modal {
+  font-weight: bold;
+  font-size: 18px;
+}
+#tipo-modal {
+  color: #666;
+  margin-bottom: 6px;
+}
+.modal-botones {
+  display: flex;
+  gap: 10px;
+  padding: 0 15px 15px;
+}
+.modal-botones button {
+  flex: 1;
+  padding: 8px;
+  border: none;
+  border-radius: 6px;
+  color: white;
+  cursor: pointer;
+}
+.btn-eliminar { background: #d93025; }
+.btn-cerrar   { background: #555; }
+.modal-botones button:hover { opacity: 0.85; }
