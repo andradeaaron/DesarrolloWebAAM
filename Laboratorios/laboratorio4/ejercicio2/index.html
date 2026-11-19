@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cafetería USFX - Panel de administración</title>
+    <link rel="stylesheet" href="../estilos.css">
+    <script src="app.js" defer></script>
+</head>
+<body>
+    <header class="cabecera">
+        <div>
+            <h1>Cafetería USFX</h1>
+            <p>Administración del menú - Ejercicio 2</p>
+        </div>
+        <nav>
+            <button type="button" data-vista="inicio">Inicio</button>
+            <button type="button" data-vista="menu">Menú</button>
+            <button type="button" data-vista="nuevo">Nuevo producto</button>
+        </nav>
+    </header>
+
+    <main class="contenedor">
+        <div id="avisos"></div>
+        <section class="panel" id="contenido"></section>
+    </main>
+
+    <div class="modal" id="modal">
+        <div class="modal-caja">
+            <div class="modal-titulo" id="modalTitulo"></div>
+            <div class="modal-cuerpo" id="modalCuerpo"></div>
+            <div class="modal-pie" id="modalPie"></div>
+        </div>
+    </div>
+
+    <footer class="pie">SIS-256 · Tecnología y Desarrollo Web · Laboratorio 4</footer>
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cafetería USFX - Arma tu pedido</title>
+    <link rel="stylesheet" href="../estilos.css">
+    <script src="pedido.js" defer></script>
+</head>
+<body>
+    <header class="cabecera">
+        <div>
+            <h1>Cafeteria USFX</h1>
+            <p>Arma tu pedido - Ejercicio 1 </p>
+        </div>
+        <div>Productos en el pedido <span class="contador" id="contador">0</span></div>
+    </header>
+
+    <main class="contenedor">
+        <div class="columnas">
+            <section class="panel">
+                <h2>Menú del día</h2>
+                <div class="barra">
+                    <div class="campo">
+                        <label for="buscar">Buscar producto</label>
+                        <input type="search" id="buscar" placeholder="Escriba parte del nombre..." autocomplete="off">
+                    </div>
+                    <div class="campo">
+                        <label for="categoria">Categoría</label>
+                        <select id="categoria">
+                            <option value="Todas">Todas</option>
+                            <option value="Salados">Salados</option>
+                            <option value="Platos">Platos</option>
+                            <option value="Postres">Postres</option>
+                        </select>
+                    </div>
+                </div>
+                <p id="resumen" class="vacio"></p>
+                <div id="catalogo" class="grilla"></div>
+            </section>
+
+            <aside>
+                <section class="panel">
+                    <h3>Tu pedido</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Producto</th>
+                                <th class="num">Cant.</th>
+                                <th class="num">Subtotal</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody id="detalle"></tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="2">TOTAL</td>
+                                <td class="num">bs <span id="total">0.00</span></td>
+                                <td></td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                    <p class="derecha">
+                        <button type="button" id="vaciar" class="boton boton-sec mini">Vaciar pedido</button>
+                    </p>
+                </section>
+
+                <section class="panel">
+                    <h3>Datos para la entrega</h3>
+                    <div id="errores" class="aviso aviso-error oculto">
+                        <span>No se puede confirmar:</span>
+                        <ul id="listaErrores" class="lista-errores"></ul>
+                    </div>
+                    <form id="formPedido" novalidate>
+                        <div class="campo">
+                            <label for="nombre">Nombre completo</label>
+                            <input type="text" id="nombre" name="nombre" autocomplete="off">
+                            <div class="error-campo" id="error-nombre"></div>
+                        </div>
+                        <div class="campo">
+                            <label for="celular">Celular</label>
+                            <input type="tel" id="celular" name="celular" placeholder="7XXXXXXX" autocomplete="off">
+                            <div class="error-campo" id="error-celular"></div>
+                        </div>
+                        <div class="campo">
+                            <label for="entrega">Entrega</label>
+                            <select id="entrega" name="entrega">
+                                <option value="Recoger en caja">Recoger en caja</option>
+                                <option value="Llevar al aula">Llevar al aula</option>
+                            </select>
+                        </div>
+                        <div class="campo oculto" id="campoAula">
+                            <label for="aula">Aula (ej. A-12)</label>
+                            <input type="text" id="aula" name="aula" autocomplete="off">
+                            <div class="error-campo" id="error-aula"></div>
+                        </div>
+                        <button type="submit" class="boton boton-ok">Confirmar pedido</button>
+                    </form>
+                </section>
+
+                <div id="mensajes"></div>
+            </aside>
+        </div>
+    </main>
+
+    <footer class="pie">SIS-256 - Tecnología y Desarrollo Web - Laboratorio 4</footer>
+</body>
+</html>

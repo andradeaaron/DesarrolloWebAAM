@@ -1,0 +1,210 @@
+/* =====================================================================
+   SIS-256 - Laboratorio 4 - Hoja de estilos comun (PROVISTA CON LA GUIA)
+   No es necesario modificarla: solo enlazarla desde cada pagina con
+   <link rel="stylesheet" href="../estilos.css">
+   JavaScript NO cambia estilos con element.style: agrega o quita las
+   clases de esta hoja con classList (oculto, abierto, invalido, ...).
+   ===================================================================== */
+
+:root {
+    --azul: #1f3864;
+    --azul-claro: #2e5090;
+    --dorado: #f0a500;
+    --verde: #16a085;
+    --rojo: #c0392b;
+    --gris: #f4f6f9;
+    --borde: #d8dee9;
+    --texto: #22303f;
+}
+
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--gris);
+    color: var(--texto);
+}
+
+/* ---------- Cabecera ---------- */
+.cabecera {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    background: var(--azul);
+    color: #fff;
+    padding: 14px 24px;
+    border-bottom: 4px solid var(--dorado);
+}
+.cabecera h1 { font-size: 20px; margin: 0; }
+.cabecera p  { margin: 2px 0 0; font-size: 12px; color: #c9d6e8; }
+.cabecera nav button,
+.cabecera nav a {
+    background: transparent;
+    color: #fff;
+    text-decoration: none;
+    border: 1px solid #7f96bb;
+    border-radius: 14px;
+    padding: 5px 12px;
+    font-size: 12px;
+    margin-left: 6px;
+    cursor: pointer;
+}
+.cabecera nav button:hover, .cabecera nav button.activo { background: var(--azul-claro); }
+
+.contenedor { max-width: 1120px; margin: 20px auto; padding: 0 16px; }
+
+h2 { color: var(--azul); border-bottom: 2px dashed var(--dorado); padding-bottom: 6px; font-size: 20px; margin-top: 0; }
+h3 { color: var(--azul-claro); margin: 0 0 8px; font-size: 15px; }
+
+/* ---------- Dos columnas: catalogo + pedido ---------- */
+.columnas { display: grid; grid-template-columns: 1fr 360px; gap: 18px; align-items: start; }
+
+/* ---------- Paneles y formularios ---------- */
+.panel {
+    background: #fff;
+    border: 1px solid var(--borde);
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin-bottom: 18px;
+}
+.barra { display: flex; gap: 10px; align-items: flex-end; flex-wrap: wrap; margin-bottom: 14px; }
+.barra .campo { flex: 1 1 180px; margin-bottom: 0; }
+label { display: block; font-size: 12px; font-weight: bold; margin-bottom: 4px; }
+input[type="text"], input[type="search"], input[type="number"], input[type="tel"],
+input[type="file"], select, textarea {
+    width: 100%;
+    padding: 8px 10px;
+    border: 1px solid var(--borde);
+    border-radius: 5px;
+    font-size: 14px;
+    background: #fff;
+    font-family: inherit;
+}
+input:focus, select:focus, textarea:focus { outline: 2px solid var(--dorado); }
+.campo { margin-bottom: 12px; }
+.fila { display: flex; gap: 14px; flex-wrap: wrap; }
+.fila .campo { flex: 1 1 160px; }
+
+/* Validacion: la agrega/quita JavaScript */
+.invalido { border-color: var(--rojo) !important; background: #fdf3f2 !important; }
+.valido   { border-color: var(--verde) !important; }
+.error-campo { color: var(--rojo); font-size: 11px; margin-top: 3px; min-height: 13px; }
+
+/* ---------- Botones ---------- */
+.boton {
+    display: inline-block;
+    background: var(--azul);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 9px 18px;
+    font-size: 13px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background .2s;
+}
+.boton:hover { background: var(--azul-claro); }
+.boton:disabled { background: #9aa6b8; cursor: wait; }
+.boton-ok { background: var(--verde); }
+.boton-ok:hover { background: #12866c; }
+.boton-no { background: var(--rojo); }
+.boton-no:hover { background: #962d21; }
+.boton-sec { background: #6b7a90; }
+.mini { padding: 4px 10px; font-size: 11px; }
+
+/* ---------- Grilla de productos (tarjetas) ---------- */
+.grilla { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 14px; }
+.producto {
+    background: #fff;
+    border: 1px solid var(--borde);
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+.producto img { width: 100%; height: 120px; object-fit: cover; display: block; background: #e4e9f0; }
+.producto .cuerpo { padding: 10px 12px; flex: 1; display: flex; flex-direction: column; gap: 4px; }
+.producto h4 { margin: 0; font-size: 14px; color: var(--azul); }
+.producto .precio { font-weight: bold; color: var(--verde); font-size: 15px; }
+.producto .acciones { display: flex; gap: 6px; margin-top: auto; padding-top: 6px; }
+.producto.agotado { opacity: .55; }
+.sin-imagen {
+    height: 120px; background: #ccd5e2; color: #5a6a7e;
+    display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 12px;
+}
+
+/* ---------- Etiquetas ---------- */
+.etiqueta {
+    display: inline-block;
+    border-radius: 10px;
+    padding: 2px 9px;
+    font-size: 10px;
+    font-weight: bold;
+    text-transform: uppercase;
+    background: var(--dorado);
+    color: #33270a;
+    align-self: flex-start;
+}
+.et-salados { background: var(--dorado); color: #33270a; }
+.et-platos  { background: var(--azul-claro); color: #fff; }
+.et-postres { background: #8e44ad; color: #fff; }
+.et-agotado { background: var(--rojo); color: #fff; }
+.contador {
+    display: inline-block; min-width: 22px; text-align: center;
+    background: var(--dorado); color: #33270a; border-radius: 11px;
+    padding: 1px 7px; font-size: 12px; font-weight: bold; margin-left: 6px;
+}
+
+/* ---------- Tablas ---------- */
+table { width: 100%; border-collapse: collapse; background: #fff; }
+th, td { border: 1px solid var(--borde); padding: 7px 8px; font-size: 13px; text-align: left; vertical-align: middle; }
+thead th { background: var(--azul); color: #fff; text-transform: uppercase; font-size: 11px; }
+tbody tr:nth-child(even) { background: #eef2f8; }
+td.num, th.num { text-align: right; }
+tfoot td { font-weight: bold; background: #fff7e0; }
+
+/* ---------- Avisos ---------- */
+.aviso {
+    border-left: 5px solid var(--verde);
+    background: #e8f8f4;
+    padding: 10px 14px;
+    border-radius: 5px;
+    margin-bottom: 14px;
+    font-size: 14px;
+}
+.aviso-error { border-left-color: var(--rojo); background: #fdecea; }
+.aviso-info  { border-left-color: var(--azul-claro); background: #eaf0fa; }
+.vacio { color: #6b7a90; font-style: italic; font-size: 13px; padding: 10px 0; }
+.cargando { color: var(--azul-claro); font-size: 14px; padding: 18px 0; }
+.lista-errores { margin: 6px 0 0; padding-left: 18px; }
+
+/* ---------- Ventana modal ---------- */
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 10;
+    background: rgba(15, 25, 45, .55);
+    align-items: center;
+    justify-content: center;
+}
+.modal.abierto { display: flex; }
+.modal-caja {
+    background: #fff;
+    width: min(520px, 92%);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,.3);
+}
+.modal-titulo { background: var(--azul); color: #fff; padding: 10px 16px; font-weight: bold; border-bottom: 3px solid var(--dorado); }
+.modal-cuerpo { padding: 16px; }
+.modal-cuerpo img { width: 100%; height: 210px; object-fit: cover; border-radius: 6px; }
+.modal-pie { padding: 10px 16px; background: var(--gris); display: flex; gap: 8px; justify-content: flex-end; }
+
+/* ---------- Utilidades ---------- */
+.oculto { display: none !important; }
+.derecha { text-align: right; }
+.pie { text-align: center; font-size: 11px; color: #7a8698; padding: 16px; }

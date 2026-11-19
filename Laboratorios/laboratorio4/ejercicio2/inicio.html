@@ -1,0 +1,13 @@
+<!-- Fragmento HTML (PROVISTO): no lleva <html> ni <body>; se carga con fetch() + response.text() -->
+<h2>Bienvenido al panel de la cafetería</h2>
+<p>Esta página nunca se recarga: cada opción del menú superior pide datos al servidor
+   en segundo plano con la <strong>Fetch API</strong> y solo actualiza esta zona.</p>
+<div class="fila">
+    <div class="campo aviso aviso-info"><strong>Menú</strong><br>
+        Lista los productos desde <code>productos.php</code> (JSON) con búsqueda en vivo y filtro por categoría.</div>
+    <div class="campo aviso aviso-info"><strong>Detalle y eliminación</strong><br>
+        Cada tarjeta abre una ventana modal con los datos de <code>producto.php?id=...</code>.</div>
+    <div class="campo aviso aviso-info"><strong>Nuevo producto</strong><br>
+        El formulario se envía con <code>FormData</code> por POST, incluida la fotografía.</div>
+</div>
+<p class="vacio">Abra las herramientas del navegador (F12 → Network → Fetch/XHR) para ver cada petición.</p>
